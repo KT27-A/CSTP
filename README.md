@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/-self--supervised--learning-brightgreen)
-![](https://img.shields.io/badge/-contrastive-learning-lightgrey)
+![](https://img.shields.io/badge/-contrastive%20learning-lightgrey)
 ![](https://img.shields.io/badge/-action%20recognition-yellowgreen)
 ![](https://img.shields.io/badge/-pytorch-red)
 
