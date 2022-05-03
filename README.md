@@ -1,3 +1,8 @@
+![](https://img.shields.io/badge/-self--supervised--learning-brightgreen)
+![](https://img.shields.io/badge/-contrastive-learning-lightgrey)
+![](https://img.shields.io/badge/-action%20recognition-yellowgreen)
+![](https://img.shields.io/badge/-pytorch-red)
+
 # Contrastive Spatio-Temporal Pretext Learning for Self-supervised Video Representation
 
 This repository is an official pytorch implementation of CSTP work:
