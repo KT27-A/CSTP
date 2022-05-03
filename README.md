@@ -29,8 +29,6 @@ This repository is an official pytorch implementation of CSTP work:
 ### Datasets
 Please follow the instructions in [DATASET.md](data_process/DATASET.md) for dataset preparation.
 
-## Pre-trained models
-
 ## Pre-train/finetune/test in CSTP
 ### Pre-train instruction
 - pre-train on Kinetics
