@@ -8,11 +8,11 @@ This repository is an official pytorch implementation of CSTP work:
 
 ## Motivation
 - Considering the intermediate of contrastive learning, we propose a novel pretext task - spatio-temporal overlap rate prediction
-![](figures/demo1.png)
+![](figures/demo1.jpg)
 
 - Using playback rate prediciton and rotation prediction to further enhance temporal and spatial representation, respectively.
 
-![](figures/demo2.png)
+![](figures/demo2.jpg)
 
 ## Requirements
 
