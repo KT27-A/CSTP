@@ -33,7 +33,7 @@ Please follow the instructions in [DATASET.md](data_process/DATASET.md) for data
 ### Pre-train instruction
 - pre-train on Kinetics
 ```
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 /data/miniconda3/bin/python -m torch.distributed.launch \
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python -m torch.distributed.launch \
 --nproc_per_node=8 --master_port 11190 main_byol.py --dataset Kin400RepreLMDB --split 1 \
 --n_classes 101 --batch_size 128 --sample_duration 16 \
 --model_name r21d_byol --model_depth 1 --ft_begin_index 0 \
@@ -46,7 +46,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 /data/miniconda3/bin/python -m torch.distri
 
 - pre-train on UCF-101
 ```
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 /data/miniconda3/bin/python -m torch.distributed.launch \
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 python -m torch.distributed.launch \
 --nproc_per_node=6 --master_port 19110 main_byol.py --dataset UcfRepreBYOLSpPre --split 1 \
 --n_classes 101 --batch_size 60 --sample_duration 16 \
 --model_name r21d_byol --model_depth 1 --ft_begin_index 0 \
@@ -60,7 +60,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5 /data/miniconda3/bin/python -m torch.distribute
 ### Finetune instruction
 - Finetune on UCF-101
 ```
-CUDA_VISIBLE_DEVICES=0,1 /data/miniconda3/bin/python -m torch.distributed.launch \
+CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch \
 --nproc_per_node=2 --master_port 16110 main_ft_mp.py --dataset UcfFineTune --split 1 \
 --n_classes 101 --n_finetune_classes 101 --batch_size 60 --sample_duration 16 \
 --model_name r21d_byol --model_depth 1 \
@@ -75,7 +75,7 @@ CUDA_VISIBLE_DEVICES=0,1 /data/miniconda3/bin/python -m torch.distributed.launch
 
 ### Test instruction
 ```
-CUDA_VISIBLE_DEVICES=0 /data/miniconda3/bin/python test.py --dataset UcfFineTune --split 1 \
+CUDA_VISIBLE_DEVICES=0 python test.py --dataset UcfFineTune --split 1 \
 --n_classes 101 --n_finetune_classes 101 \
 --batch_size 1 --sample_duration 16 \
 --model_name r21d_byol --model_depth 1 --ft_begin_index 5 \
