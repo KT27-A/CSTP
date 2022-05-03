@@ -1,4 +1,4 @@
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 /data/miniconda3/bin/python -m torch.distributed.launch \
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python -m torch.distributed.launch \
 --nproc_per_node=8 --master_port 11190 main_byol.py --dataset Kin400RepreLMDB --split 1 \
 --n_classes 101 --batch_size 128 --sample_duration 16 \
 --model_name r21d_byol --model_depth 1 --ft_begin_index 0 \
@@ -8,7 +8,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 /data/miniconda3/bin/python -m torch.distri
 --n_epochs 300 --learning_rate 0.09 --weight_decay 5e-4 \
 --sample_size 112 --n_workers 6 --task loss_com --optimizer sgd --loss_weight 0.1 1 1 1 1
 
-CUDA_VISIBLE_DEVICES=0,1 /data/miniconda3/bin/python -m torch.distributed.launch \
+CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch \
 --nproc_per_node=2 --master_port 11190 main_ft_mp.py --dataset UcfFineTune --split 1 \
 --n_classes 101 --n_finetune_classes 101 --batch_size 60 --sample_duration 16 \
 --model_name r21d_byol --model_depth 1 \
@@ -20,7 +20,7 @@ CUDA_VISIBLE_DEVICES=0,1 /data/miniconda3/bin/python -m torch.distributed.launch
 --sample_size 112 --n_workers 6 --task "ft_all" --optimizer sgd --transform_mode "img" \
 --pb_rate 4
 
-CUDA_VISIBLE_DEVICES=0 /data/miniconda3/bin/python test.py --dataset UcfFineTune --split 1 \
+CUDA_VISIBLE_DEVICES=0 python test.py --dataset UcfFineTune --split 1 \
 --n_classes 101 --n_finetune_classes 101 \
 --batch_size 1 --sample_duration 16 \
 --model_name r21d_byol --model_depth 1 --ft_begin_index 5 \
